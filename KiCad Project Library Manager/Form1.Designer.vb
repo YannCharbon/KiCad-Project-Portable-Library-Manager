@@ -117,7 +117,7 @@ Partial Class Form1
         Me.GroupBox1.Controls.Add(Me.ButtonCreatePrjLib)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 119)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(776, 100)
+        Me.GroupBox1.Size = New System.Drawing.Size(776, 109)
         Me.GroupBox1.TabIndex = 5
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Project Selection and local project library creation"
@@ -128,7 +128,7 @@ Partial Class Form1
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(177, 50)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(570, 30)
+        Me.Label1.Size = New System.Drawing.Size(570, 45)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = resources.GetString("Label1.Text")
         '
@@ -147,7 +147,7 @@ Partial Class Form1
         Me.GroupBox2.Controls.Add(Me.LinkLabel1)
         Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Controls.Add(Me.ButtonAddCompFromZip)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 225)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 240)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(377, 186)
         Me.GroupBox2.TabIndex = 6
@@ -191,7 +191,7 @@ Partial Class Form1
         Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox3.Controls.Add(Me.TextBoxLog)
-        Me.GroupBox3.Location = New System.Drawing.Point(12, 417)
+        Me.GroupBox3.Location = New System.Drawing.Point(12, 432)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(776, 128)
         Me.GroupBox3.TabIndex = 7
@@ -206,7 +206,7 @@ Partial Class Form1
         Me.GroupBox4.Controls.Add(Me.ListBoxImportComp)
         Me.GroupBox4.Controls.Add(Me.ButtonChoosePrjFoldImport)
         Me.GroupBox4.Controls.Add(Me.TextBoxPrjFoldImportPath)
-        Me.GroupBox4.Location = New System.Drawing.Point(395, 225)
+        Me.GroupBox4.Location = New System.Drawing.Point(395, 234)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(393, 186)
         Me.GroupBox4.TabIndex = 8
@@ -311,7 +311,7 @@ Partial Class Form1
         Me.MaximizeBox = False
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "KiCad Project Local Library Manager v0.0.1"
+        Me.Text = "KiCad Project Local Library Manager v0.0.2"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)

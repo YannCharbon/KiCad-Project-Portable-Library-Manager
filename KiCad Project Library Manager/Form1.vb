@@ -30,14 +30,40 @@ Public Class Form1
             Log("Creating 'sym-lib-table' file")
             IO.File.WriteAllBytes(prjDir & "\sym-lib-table", My.Resources.sym_lib_table)
         Else
-            Log("'sym-lib-table' file already exists. Skipping. (Manually delete to redeploy empty library)")
+            Log("'sym-lib-table' file already exists. Adding '0_project_symbols' lib to it.")
+
+            Dim symlibtableContent = IO.File.ReadAllText(prjDir & "\sym-lib-table")
+            Dim contentWithNewLib As String = ""
+
+            If symlibtableContent.Contains("0_project_symbols") Then
+                Log("'0_project_symbols' lib already exists in 'sym-lib-table'. No modification needed.")
+            Else
+                contentWithNewLib = symlibtableContent.Insert(symlibtableContent.LastIndexOf(")") - 2, vbCrLf & "  (lib (name 0_project_symbols)(type Legacy)(uri ${KIPRJMOD}/Lib/0_project_symbols.lib)(options "")(descr ""))")
+            End If
+
+            IO.File.WriteAllText(prjDir & "\sym-lib-table", contentWithNewLib)
+
         End If
+
         If IO.File.Exists(prjDir & "\fp-lib-table") = False Then
             Log("Creating 'fp-lib-table' file")
             IO.File.WriteAllBytes(prjDir & "\fp-lib-table", My.Resources.fp_lib_table)
         Else
-            Log("'fp-lib-table' file already exists. Skipping. (Manually delete to redeploy empty library)")
+
+            Log("'fp-lib-table' file already exists. Adding '0_project_footprints' lib to it.")
+
+            Dim fplibtableContent = IO.File.ReadAllText(prjDir & "\fp-lib-table")
+            Dim contentWithNewLib As String = ""
+
+            If fplibtableContent.Contains("0_project_footprints") Then
+                Log("'0_project_footprints' lib already exists in 'fp-lib-table'. No modification needed.")
+            Else
+                contentWithNewLib = fplibtableContent.Insert(fplibtableContent.LastIndexOf(")") - 2, vbCrLf & "  (lib (name 0_project_footprints)(type KiCad)(uri ${KIPRJMOD}/Lib/0_project_footprints.pretty)(options "")(descr ""))")
+            End If
+
+            IO.File.WriteAllText(prjDir & "\fp-lib-table", contentWithNewLib)
         End If
+
         If IO.Directory.Exists(prjDir & "\Lib") = False Then
             Log("Creating 'Lib/' folder")
 

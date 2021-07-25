@@ -13,7 +13,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("Allows to add a local and portable library to a KiCad project")>
 <Assembly: AssemblyCompany("Yann Charbon")>
 <Assembly: AssemblyProduct("KiCad Project Library Manager")>
-<Assembly: AssemblyCopyright("Copyright Yann Charbon ©  2021")>
+<Assembly: AssemblyCopyright("Copyright ©  2021, Yann Charbon")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(True)>
@@ -32,6 +32,6 @@ Imports System.Runtime.InteropServices
 ' en utilisant '*', comme indiqué ci-dessous :
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("0.0.1")>
-<Assembly: AssemblyFileVersion("0.0.1")>
+<Assembly: AssemblyVersion("0.0.2")>
+<Assembly: AssemblyFileVersion("0.0.2")>
 <Assembly: NeutralResourcesLanguage("en")>

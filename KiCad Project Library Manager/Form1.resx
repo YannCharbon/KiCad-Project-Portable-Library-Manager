@@ -128,7 +128,8 @@
   </metadata>
   <data name="Label1.Text" xml:space="preserve">
     <value>NOTE : Creating Project Library is not needed if an existing library has been copied from another project.
-To manually copy a library it is necessary to copy 'fp-lib-table' and 'sym-lib-table' files and 'Lib/' folder.</value>
+To manually copy a library it is necessary to copy 'fp-lib-table' and 'sym-lib-table' files and 'Lib/' folder.
+Reloading project in KiCad may be needed to properly load the created library.</value>
   </data>
   <metadata name="OpenFileDialogPrjFoldImport.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>596, 17</value>
@@ -696,7 +697,7 @@ The project can then be shared with other people without them needing to have al
 (symbol/footprint/3d package) in their global library.
 The tool can also import components from an existing project that contains a compatible library.
 It is also possible to automatically import a component downloaded from Samacsys - Component Search Engine in zip format.
-NOTE : KiCad Project Local Library Manager v0.0.1 has only been tested with KiCad 5.1.10. other versions may work as well.</value>
+NOTE : KiCad Project Local Library Manager v0.0.2 has only been tested with KiCad 5.1.10. other versions may work as well.</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
