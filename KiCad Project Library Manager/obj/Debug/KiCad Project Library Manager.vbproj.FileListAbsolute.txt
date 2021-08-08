@@ -10,3 +10,14 @@ C:\Users\ychar\Source\repos\KiCad Project Library Manager\KiCad Project Library 
 C:\Users\ychar\Source\repos\KiCad Project Library Manager\KiCad Project Library Manager\obj\Debug\KiCad Project Library Manager.xml
 C:\Users\ychar\Source\repos\KiCad Project Library Manager\KiCad Project Library Manager\obj\Debug\KiCad Project Library Manager.pdb
 C:\Users\ychar\Source\repos\KiCad Project Library Manager\KiCad Project Library Manager\obj\Debug\KiCad Project Library Manager.vbprojAssemblyReference.cache
+C:\Users\ychar\Source\repos\KiCad-Project-Portable-Library-Manager\KiCad Project Library Manager\bin\Debug\KiCad Project Library Manager.exe.config
+C:\Users\ychar\Source\repos\KiCad-Project-Portable-Library-Manager\KiCad Project Library Manager\bin\Debug\KiCad Project Library Manager.exe
+C:\Users\ychar\Source\repos\KiCad-Project-Portable-Library-Manager\KiCad Project Library Manager\bin\Debug\KiCad Project Library Manager.pdb
+C:\Users\ychar\Source\repos\KiCad-Project-Portable-Library-Manager\KiCad Project Library Manager\bin\Debug\KiCad Project Library Manager.xml
+C:\Users\ychar\Source\repos\KiCad-Project-Portable-Library-Manager\KiCad Project Library Manager\obj\Debug\KiCad Project Library Manager.vbprojAssemblyReference.cache
+C:\Users\ychar\Source\repos\KiCad-Project-Portable-Library-Manager\KiCad Project Library Manager\obj\Debug\KiCad_Project_Library_Manager.Form1.resources
+C:\Users\ychar\Source\repos\KiCad-Project-Portable-Library-Manager\KiCad Project Library Manager\obj\Debug\KiCad_Project_Library_Manager.Resources.resources
+C:\Users\ychar\Source\repos\KiCad-Project-Portable-Library-Manager\KiCad Project Library Manager\obj\Debug\KiCad Project Library Manager.vbproj.GenerateResource.cache
+C:\Users\ychar\Source\repos\KiCad-Project-Portable-Library-Manager\KiCad Project Library Manager\obj\Debug\KiCad Project Library Manager.exe
+C:\Users\ychar\Source\repos\KiCad-Project-Portable-Library-Manager\KiCad Project Library Manager\obj\Debug\KiCad Project Library Manager.xml
+C:\Users\ychar\Source\repos\KiCad-Project-Portable-Library-Manager\KiCad Project Library Manager\obj\Debug\KiCad Project Library Manager.pdb

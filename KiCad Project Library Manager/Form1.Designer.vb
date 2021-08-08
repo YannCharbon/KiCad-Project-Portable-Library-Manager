@@ -39,13 +39,13 @@ Partial Class Form1
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.ButtonImportAllComponents = New System.Windows.Forms.Button()
         Me.ButtonImportComponents = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.ListBoxImportComp = New System.Windows.Forms.ListBox()
         Me.ButtonChoosePrjFoldImport = New System.Windows.Forms.Button()
         Me.TextBoxPrjFoldImportPath = New System.Windows.Forms.TextBox()
         Me.OpenFileDialogPrjFoldImport = New System.Windows.Forms.OpenFileDialog()
-        Me.ButtonImportAllComponents = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
@@ -213,6 +213,15 @@ Partial Class Form1
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Transfert component from existing project"
         '
+        'ButtonImportAllComponents
+        '
+        Me.ButtonImportAllComponents.Location = New System.Drawing.Point(132, 118)
+        Me.ButtonImportAllComponents.Name = "ButtonImportAllComponents"
+        Me.ButtonImportAllComponents.Size = New System.Drawing.Size(95, 48)
+        Me.ButtonImportAllComponents.TabIndex = 8
+        Me.ButtonImportAllComponents.Text = "Import all components"
+        Me.ButtonImportAllComponents.UseVisualStyleBackColor = True
+        '
         'ButtonImportComponents
         '
         Me.ButtonImportComponents.Location = New System.Drawing.Point(132, 67)
@@ -265,15 +274,6 @@ Partial Class Form1
         Me.OpenFileDialogPrjFoldImport.FileName = "*"
         Me.OpenFileDialogPrjFoldImport.ValidateNames = False
         '
-        'ButtonImportAllComponents
-        '
-        Me.ButtonImportAllComponents.Location = New System.Drawing.Point(132, 118)
-        Me.ButtonImportAllComponents.Name = "ButtonImportAllComponents"
-        Me.ButtonImportAllComponents.Size = New System.Drawing.Size(95, 48)
-        Me.ButtonImportAllComponents.TabIndex = 8
-        Me.ButtonImportAllComponents.Text = "Import all components"
-        Me.ButtonImportAllComponents.UseVisualStyleBackColor = True
-        '
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
@@ -311,7 +311,7 @@ Partial Class Form1
         Me.MaximizeBox = False
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "KiCad Project Local Library Manager v0.0.2"
+        Me.Text = "KiCad Project Local Library Manager v0.0.3"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)

@@ -185,19 +185,39 @@ Public Class Form1
         Dim files() As String
         ' STP
         Log("Importing '.stp' 3d packages")
-        files = IO.Directory.GetFiles(compFold & "\3D\", "*.stp", IO.SearchOption.TopDirectoryOnly)
-        For Each FileName As String In files
-            Log("Importing '" & FileName.Split("\").Last & "' as '\Lib\Package3d\" & compName & ".stp'")
-            IO.File.Copy(FileName, prjDir & "\Lib\Package3d\" & compName & ".stp", True)
-        Next
+        Try
+            files = IO.Directory.GetFiles(compFold & "\3D\", "*.stp", IO.SearchOption.TopDirectoryOnly)
+        Catch ex As Exception
+            Log("Could not find STP file in folder '" & compFold & "\3D\'")
+        End Try
+
+        If files IsNot Nothing Then
+            For Each FileName As String In files
+                Log("Importing '" & FileName.Split("\").Last & "' as '\Lib\Package3d\" & compName & ".stp'")
+                IO.File.Copy(FileName, prjDir & "\Lib\Package3d\" & compName & ".stp", True)
+            Next
+        Else
+            Log("No STP 3d package found. Skipping")
+        End If
+
 
         'WRL
         Log("Importing '.wrl' 3d packages")
-        files = IO.Directory.GetFiles(compFold & "\3D\", "*.wrl", IO.SearchOption.TopDirectoryOnly)
-        For Each FileName As String In files
-            Log("Importing '" & FileName.Split("\").Last & "' as '\Lib\Package3d\" & compName & ".wrl'")
-            IO.File.Copy(FileName, prjDir & "\Lib\Package3d\" & compName & ".wrl", True)
-        Next
+        Try
+            files = IO.Directory.GetFiles(compFold & "\3D\", "*.wrl", IO.SearchOption.TopDirectoryOnly)
+        Catch ex As Exception
+            Log("Could not find WRL file in folder '" & compFold & "\3D\'")
+        End Try
+
+        If files IsNot Nothing Then
+            For Each FileName As String In files
+                Log("Importing '" & FileName.Split("\").Last & "' as '\Lib\Package3d\" & compName & ".wrl'")
+                IO.File.Copy(FileName, prjDir & "\Lib\Package3d\" & compName & ".wrl", True)
+            Next
+        Else
+            Log("No WRL 3d package found. Skipping")
+        End If
+
     End Sub
 
     Sub FindAndCopySymbol(ByVal compFold As String, ByVal compName As String)
