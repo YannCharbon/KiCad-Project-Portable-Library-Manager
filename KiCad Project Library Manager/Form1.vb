@@ -50,9 +50,11 @@ Public Class Form1
         If TextBoxPrjFoldPath.Text.Contains(".pro") Then
             ButtonCreatePrjLib.Enabled = True
             ButtonAddCompFromZip.Enabled = True
+            ButtonAddCompFromUltraLibZip.Enabled = True
         Else
             ButtonCreatePrjLib.Enabled = False
             ButtonAddCompFromZip.Enabled = False
+            ButtonAddCompFromUltraLibZip.Enabled = False
         End If
 
         If TextBoxPrjFoldImportPath.Text.Contains(".pro") Then
@@ -67,6 +69,11 @@ Public Class Form1
 
     End Sub
 
+    ''' <summary>
+    ''' Add comp from Samacsys
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub ButtonAddCompFromZip_Click(sender As Object, e As EventArgs) Handles ButtonAddCompFromZip.Click
         logger.Log("Choosing 'Samacsys - ComponentSearchEngine' component archive to deploy to project lib")
         If OpenFileDialogCompZip.ShowDialog() = DialogResult.OK Then
@@ -83,15 +90,38 @@ Public Class Form1
         End If
     End Sub
 
+    ''' <summary>
+    ''' Add Comp from Ultra Librarian
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub ButtonAddCompFromUltraLibZip_Click(sender As Object, e As EventArgs) Handles ButtonAddCompFromUltraLibZip.Click
+        logger.Log("Choosing 'Ultra Librarian' component archive to deploy to project lib")
+        If OpenFileDialogCompZip.ShowDialog() = DialogResult.OK Then
+            Dim zipFilePath = OpenFileDialogCompZip.FileName
+            logger.Log("Selected archive located at " & zipFilePath)
+
+            Dim compImporter As UltraLibComponentImporter = New UltraLibComponentImporter(zipFilePath, kicadPrj, logger)
+
+            compImporter.ImportComponent()
+
+            logger.Log("done")
+        Else
+            logger.Log("Aborted")
+        End If
+    End Sub
+
 
     Private Sub TextBoxPrjFoldPath_TextChanged(sender As Object, e As EventArgs) Handles TextBoxPrjFoldPath.TextChanged
         If TextBoxPrjFoldPath.Text.Contains(".pro") Then
             ButtonCreatePrjLib.Enabled = True
             ButtonAddCompFromZip.Enabled = True
+            ButtonAddCompFromUltraLibZip.Enabled = True
             kicadPrj = New KiCadProject(TextBoxPrjFoldPath.Text.Remove(TextBoxPrjFoldPath.Text.LastIndexOf("\"), TextBoxPrjFoldPath.Text.Length - TextBoxPrjFoldPath.Text.LastIndexOf("\")), logger)
         Else
             ButtonCreatePrjLib.Enabled = False
             ButtonAddCompFromZip.Enabled = False
+            ButtonAddCompFromUltraLibZip.Enabled = False
         End If
     End Sub
 
@@ -133,5 +163,13 @@ Public Class Form1
         Dim compImport As KicadToKicadComponentImporter = New KicadToKicadComponentImporter(kicadPrj, kicadImportSrcPrj, logger)
 
         compImport.ImportAllSymbols()
+    End Sub
+
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+        System.Diagnostics.Process.Start("https://componentsearchengine.com/")
+    End Sub
+
+    Private Sub LinkLabel2_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
+        System.Diagnostics.Process.Start("https://www.ultralibrarian.com/")
     End Sub
 End Class

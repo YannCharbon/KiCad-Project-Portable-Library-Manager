@@ -52,6 +52,20 @@ KiCad Project Library Manager
  This Class represents a generic component importer
  </summary>
 </member>
+<member name="M:KiCad_Project_Library_Manager.Form1.ButtonAddCompFromZip_Click(System.Object,System.EventArgs)">
+ <summary>
+ Add comp from Samacsys
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:KiCad_Project_Library_Manager.Form1.ButtonAddCompFromUltraLibZip_Click(System.Object,System.EventArgs)">
+ <summary>
+ Add Comp from Ultra Librarian
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
 <member name="T:KiCad_Project_Library_Manager.KicadToKicadComponentImporter">
  <summary>
  This Class represents a ComponentImporter that can be used to import a

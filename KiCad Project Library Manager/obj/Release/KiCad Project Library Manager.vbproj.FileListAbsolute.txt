@@ -21,3 +21,8 @@ C:\Users\ychar\Source\repos\KiCad-Project-Portable-Library-Manager\KiCad Project
 C:\Users\ychar\Source\repos\KiCad-Project-Portable-Library-Manager\KiCad Project Library Manager\obj\Release\KiCad Project Library Manager.exe
 C:\Users\ychar\Source\repos\KiCad-Project-Portable-Library-Manager\KiCad Project Library Manager\obj\Release\KiCad Project Library Manager.xml
 C:\Users\ychar\Source\repos\KiCad-Project-Portable-Library-Manager\KiCad Project Library Manager\obj\Release\KiCad Project Library Manager.pdb
+C:\Users\ychar\Source\repos\KiCad-Project-Portable-Library-Manager\KiCad Project Library Manager\bin\Release\KiCad Project Library Manager.exe.manifest
+C:\Users\ychar\Source\repos\KiCad-Project-Portable-Library-Manager\KiCad Project Library Manager\bin\Release\KiCad Project Library Manager.application
+C:\Users\ychar\Source\repos\KiCad-Project-Portable-Library-Manager\KiCad Project Library Manager\obj\Release\KiCad Project Library Manager.TrustInfo.xml
+C:\Users\ychar\Source\repos\KiCad-Project-Portable-Library-Manager\KiCad Project Library Manager\obj\Release\KiCad Project Library Manager.exe.manifest
+C:\Users\ychar\Source\repos\KiCad-Project-Portable-Library-Manager\KiCad Project Library Manager\obj\Release\KiCad Project Library Manager.application

@@ -32,7 +32,6 @@ Partial Class Form1
         Me.TextBoxLog = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBoxPrjFoldPath = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
@@ -44,10 +43,13 @@ Partial Class Form1
         Me.Label4 = New System.Windows.Forms.Label()
         Me.ListBoxImportComp = New System.Windows.Forms.ListBox()
         Me.ButtonChoosePrjFoldImport = New System.Windows.Forms.Button()
-        Me.TextBoxPrjFoldImportPath = New System.Windows.Forms.TextBox()
         Me.OpenFileDialogPrjFoldImport = New System.Windows.Forms.OpenFileDialog()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.TextBoxPrjFoldImportPath = New System.Windows.Forms.TextBox()
+        Me.TextBoxPrjFoldPath = New System.Windows.Forms.TextBox()
+        Me.LinkLabel2 = New System.Windows.Forms.LinkLabel()
+        Me.ButtonAddCompFromUltraLibZip = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -84,7 +86,7 @@ Partial Class Form1
         'ButtonAddCompFromZip
         '
         Me.ButtonAddCompFromZip.Enabled = False
-        Me.ButtonAddCompFromZip.Location = New System.Drawing.Point(6, 118)
+        Me.ButtonAddCompFromZip.Location = New System.Drawing.Point(6, 152)
         Me.ButtonAddCompFromZip.Name = "ButtonAddCompFromZip"
         Me.ButtonAddCompFromZip.Size = New System.Drawing.Size(158, 62)
         Me.ButtonAddCompFromZip.TabIndex = 3
@@ -132,24 +134,17 @@ Partial Class Form1
         Me.Label1.TabIndex = 3
         Me.Label1.Text = resources.GetString("Label1.Text")
         '
-        'TextBoxPrjFoldPath
-        '
-        Me.TextBoxPrjFoldPath.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.KiCad_Project_Library_Manager.My.MySettings.Default, "TB_prj_saved", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBoxPrjFoldPath.Location = New System.Drawing.Point(6, 19)
-        Me.TextBoxPrjFoldPath.Name = "TextBoxPrjFoldPath"
-        Me.TextBoxPrjFoldPath.Size = New System.Drawing.Size(604, 20)
-        Me.TextBoxPrjFoldPath.TabIndex = 1
-        Me.TextBoxPrjFoldPath.Text = Global.KiCad_Project_Library_Manager.My.MySettings.Default.TB_prj_saved
-        '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.ButtonAddCompFromUltraLibZip)
+        Me.GroupBox2.Controls.Add(Me.LinkLabel2)
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.LinkLabel1)
         Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Controls.Add(Me.ButtonAddCompFromZip)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 240)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(377, 186)
+        Me.GroupBox2.Size = New System.Drawing.Size(377, 220)
         Me.GroupBox2.TabIndex = 6
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Component import"
@@ -158,7 +153,7 @@ Partial Class Form1
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(6, 70)
+        Me.Label3.Location = New System.Drawing.Point(6, 104)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(286, 45)
         Me.Label3.TabIndex = 6
@@ -168,7 +163,7 @@ Partial Class Form1
         'LinkLabel1
         '
         Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.Location = New System.Drawing.Point(6, 54)
+        Me.LinkLabel1.Location = New System.Drawing.Point(6, 68)
         Me.LinkLabel1.Name = "LinkLabel1"
         Me.LinkLabel1.Size = New System.Drawing.Size(188, 13)
         Me.LinkLabel1.TabIndex = 5
@@ -181,17 +176,17 @@ Partial Class Form1
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(6, 19)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(336, 30)
+        Me.Label2.Size = New System.Drawing.Size(336, 45)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "This tool allows to automatically import a component " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(symbol/footprint/3d packa" &
-    "ge) into the selected project library"
+    "ge) into the selected project library" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "from the following providers"
         '
         'GroupBox3
         '
         Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox3.Controls.Add(Me.TextBoxLog)
-        Me.GroupBox3.Location = New System.Drawing.Point(12, 432)
+        Me.GroupBox3.Location = New System.Drawing.Point(12, 466)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(776, 128)
         Me.GroupBox3.TabIndex = 7
@@ -258,15 +253,6 @@ Partial Class Form1
         Me.ButtonChoosePrjFoldImport.Text = "Choose projet to import from"
         Me.ButtonChoosePrjFoldImport.UseVisualStyleBackColor = True
         '
-        'TextBoxPrjFoldImportPath
-        '
-        Me.TextBoxPrjFoldImportPath.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.KiCad_Project_Library_Manager.My.MySettings.Default, "TB_prj_import_saved", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBoxPrjFoldImportPath.Location = New System.Drawing.Point(6, 19)
-        Me.TextBoxPrjFoldImportPath.Name = "TextBoxPrjFoldImportPath"
-        Me.TextBoxPrjFoldImportPath.Size = New System.Drawing.Size(221, 20)
-        Me.TextBoxPrjFoldImportPath.TabIndex = 4
-        Me.TextBoxPrjFoldImportPath.Text = Global.KiCad_Project_Library_Manager.My.MySettings.Default.TB_prj_import_saved
-        '
         'OpenFileDialogPrjFoldImport
         '
         Me.OpenFileDialogPrjFoldImport.AddExtension = False
@@ -295,11 +281,49 @@ Partial Class Form1
         Me.Label5.TabIndex = 4
         Me.Label5.Text = resources.GetString("Label5.Text")
         '
+        'TextBoxPrjFoldImportPath
+        '
+        Me.TextBoxPrjFoldImportPath.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.KiCad_Project_Library_Manager.My.MySettings.Default, "TB_prj_import_saved", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBoxPrjFoldImportPath.Location = New System.Drawing.Point(6, 19)
+        Me.TextBoxPrjFoldImportPath.Name = "TextBoxPrjFoldImportPath"
+        Me.TextBoxPrjFoldImportPath.Size = New System.Drawing.Size(221, 20)
+        Me.TextBoxPrjFoldImportPath.TabIndex = 4
+        Me.TextBoxPrjFoldImportPath.Text = Global.KiCad_Project_Library_Manager.My.MySettings.Default.TB_prj_import_saved
+        '
+        'TextBoxPrjFoldPath
+        '
+        Me.TextBoxPrjFoldPath.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.KiCad_Project_Library_Manager.My.MySettings.Default, "TB_prj_saved", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBoxPrjFoldPath.Location = New System.Drawing.Point(6, 19)
+        Me.TextBoxPrjFoldPath.Name = "TextBoxPrjFoldPath"
+        Me.TextBoxPrjFoldPath.Size = New System.Drawing.Size(604, 20)
+        Me.TextBoxPrjFoldPath.TabIndex = 1
+        Me.TextBoxPrjFoldPath.Text = Global.KiCad_Project_Library_Manager.My.MySettings.Default.TB_prj_saved
+        '
+        'LinkLabel2
+        '
+        Me.LinkLabel2.AutoSize = True
+        Me.LinkLabel2.Location = New System.Drawing.Point(6, 88)
+        Me.LinkLabel2.Name = "LinkLabel2"
+        Me.LinkLabel2.Size = New System.Drawing.Size(154, 13)
+        Me.LinkLabel2.TabIndex = 7
+        Me.LinkLabel2.TabStop = True
+        Me.LinkLabel2.Text = "https://www.ultralibrarian.com/"
+        '
+        'ButtonAddCompFromUltraLibZip
+        '
+        Me.ButtonAddCompFromUltraLibZip.Enabled = False
+        Me.ButtonAddCompFromUltraLibZip.Location = New System.Drawing.Point(213, 152)
+        Me.ButtonAddCompFromUltraLibZip.Name = "ButtonAddCompFromUltraLibZip"
+        Me.ButtonAddCompFromUltraLibZip.Size = New System.Drawing.Size(158, 62)
+        Me.ButtonAddCompFromUltraLibZip.TabIndex = 8
+        Me.ButtonAddCompFromUltraLibZip.Text = "Import component " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "from Ultra Librarian" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "archive (.zip)"
+        Me.ButtonAddCompFromUltraLibZip.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 572)
+        Me.ClientSize = New System.Drawing.Size(800, 606)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.GroupBox4)
@@ -311,7 +335,7 @@ Partial Class Form1
         Me.MaximizeBox = False
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "KiCad Project Local Library Manager v0.1.0"
+        Me.Text = "KiCad Project Local Library Manager v0.1.5"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -351,4 +375,6 @@ Partial Class Form1
     Friend WithEvents ButtonImportAllComponents As Button
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label5 As Label
+    Friend WithEvents ButtonAddCompFromUltraLibZip As Button
+    Friend WithEvents LinkLabel2 As LinkLabel
 End Class
