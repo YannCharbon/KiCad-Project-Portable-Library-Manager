@@ -47,5 +47,23 @@ KiCad Project Library Manager
   Recherche une ressource localisée de type System.Byte[].
 </summary>
 </member>
+<member name="T:KiCad_Project_Library_Manager.ComponentImporter">
+ <summary>
+ This Class represents a generic component importer
+ </summary>
+</member>
+<member name="T:KiCad_Project_Library_Manager.KicadToKicadComponentImporter">
+ <summary>
+ This Class represents a ComponentImporter that can be used to import a
+ component from another existing KiCad Project that contains a local library
+ </summary>
+</member>
+<member name="T:KiCad_Project_Library_Manager.SamacsysComponentImporter">
+ <summary>
+ This Class represents a ComponentImporter for components that can be downloaded
+ in ZIP format from Samacsys - ComponentSearchEngine
+ 
+ </summary>
+</member>
 </members>
 </doc>

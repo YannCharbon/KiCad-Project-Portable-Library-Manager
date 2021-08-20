@@ -697,7 +697,7 @@ The project can then be shared with other people without them needing to have al
 (symbol/footprint/3d package) in their global library.
 The tool can also import components from an existing project that contains a compatible library.
 It is also possible to automatically import a component downloaded from Samacsys - Component Search Engine in zip format.
-NOTE : KiCad Project Local Library Manager v0.0.3 has only been tested with KiCad 5.1.10. other versions may work as well.</value>
+NOTE : KiCad Project Local Library Manager v0.1.0 has only been tested with KiCad 5.1.10. other versions may work as well.</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
