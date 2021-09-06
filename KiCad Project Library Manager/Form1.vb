@@ -51,10 +51,12 @@ Public Class Form1
             ButtonCreatePrjLib.Enabled = True
             ButtonAddCompFromZip.Enabled = True
             ButtonAddCompFromUltraLibZip.Enabled = True
+            ButtonAddCompFromSnapEdaZip.Enabled = True
         Else
             ButtonCreatePrjLib.Enabled = False
             ButtonAddCompFromZip.Enabled = False
             ButtonAddCompFromUltraLibZip.Enabled = False
+            ButtonAddCompFromSnapEdaZip.Enabled = False
         End If
 
         If TextBoxPrjFoldImportPath.Text.Contains(".pro") Then
@@ -117,11 +119,13 @@ Public Class Form1
             ButtonCreatePrjLib.Enabled = True
             ButtonAddCompFromZip.Enabled = True
             ButtonAddCompFromUltraLibZip.Enabled = True
+            ButtonAddCompFromSnapEdaZip.Enabled = True
             kicadPrj = New KiCadProject(TextBoxPrjFoldPath.Text.Remove(TextBoxPrjFoldPath.Text.LastIndexOf("\"), TextBoxPrjFoldPath.Text.Length - TextBoxPrjFoldPath.Text.LastIndexOf("\")), logger)
         Else
             ButtonCreatePrjLib.Enabled = False
             ButtonAddCompFromZip.Enabled = False
             ButtonAddCompFromUltraLibZip.Enabled = False
+            ButtonAddCompFromSnapEdaZip.Enabled = False
         End If
     End Sub
 
@@ -171,5 +175,25 @@ Public Class Form1
 
     Private Sub LinkLabel2_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
         System.Diagnostics.Process.Start("https://www.ultralibrarian.com/")
+    End Sub
+
+    Private Sub LinkLabel3_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel3.LinkClicked
+        System.Diagnostics.Process.Start("https://www.snapeda.com/")
+    End Sub
+
+    Private Sub ButtonAddCompFromSnapEdaZip_Click(sender As Object, e As EventArgs) Handles ButtonAddCompFromSnapEdaZip.Click
+        logger.Log("Choosing 'Ultra Librarian' component archive to deploy to project lib")
+        If OpenFileDialogCompZip.ShowDialog() = DialogResult.OK Then
+            Dim zipFilePath = OpenFileDialogCompZip.FileName
+            logger.Log("Selected archive located at " & zipFilePath)
+
+            Dim compImporter As SnapEdaComponentImporter = New SnapEdaComponentImporter(zipFilePath, kicadPrj, logger)
+
+            compImporter.ImportComponent()
+
+            logger.Log("done")
+        Else
+            logger.Log("Aborted")
+        End If
     End Sub
 End Class

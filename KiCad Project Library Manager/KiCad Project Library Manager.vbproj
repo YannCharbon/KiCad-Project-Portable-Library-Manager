@@ -119,6 +119,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="SamacsysComponentImporter.vb" />
+    <Compile Include="SnapEdaComponentImporter.vb" />
     <Compile Include="UltraLibComponentImporter.vb" />
   </ItemGroup>
   <ItemGroup>

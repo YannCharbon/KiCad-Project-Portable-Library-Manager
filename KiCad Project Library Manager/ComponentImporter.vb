@@ -48,7 +48,7 @@ Public Class ComponentImporter
         Logger.Log("Extracting component symbol from archive")
         Dim compOnly As String = ""
         Dim isInCompBlock = False
-        For Each line In compSymLibContent.Split(vbCrLf)
+        For Each line In compSymLibContent.Split(vbLf)
             If line.Contains("#End Library") Then
                 isInCompBlock = False
             End If
