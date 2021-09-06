@@ -4,7 +4,7 @@
   <description asmv2:iconFile="KiCad_lib_manager.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="KiCad Project Library Manager" version="0.1.6.0" publicKeyToken="E7196704BAC46107" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="KiCad Project Library Manager" version="0.1.7.0" publicKeyToken="E7196704BAC46107" language="neutral" processorArchitecture="msil" />
     <commandLine file="KiCad Project Library Manager.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="KiCad Project Library Manager.exe" size="190464">
-      <assemblyIdentity name="KiCad Project Library Manager" version="0.1.6.0" publicKeyToken="E7196704BAC46107" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="KiCad Project Library Manager.exe" size="196096">
+      <assemblyIdentity name="KiCad Project Library Manager" version="0.1.7.0" publicKeyToken="E7196704BAC46107" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>dXRSJ3PZEiCl8Nmb1cTqcrlPR1StzMLFYdgCAatU+X8=</dsig:DigestValue>
+        <dsig:DigestValue>goKLLybj+x+Brbc1blJ4miE3g+vgDHcOwposOhA4bAo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

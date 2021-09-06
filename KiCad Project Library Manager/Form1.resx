@@ -126,11 +126,6 @@
   <metadata name="OpenFileDialogCompZip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>410, 17</value>
   </metadata>
-  <data name="Label1.Text" xml:space="preserve">
-    <value>NOTE : Creating Project Library is not needed if an existing library has been copied from another project.
-To manually copy a library it is necessary to copy 'fp-lib-table' and 'sym-lib-table' files and 'Lib/' folder.
-Reloading project in KiCad may be needed to properly load the created library.</value>
-  </data>
   <metadata name="OpenFileDialogPrjFoldImport.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>596, 17</value>
   </metadata>

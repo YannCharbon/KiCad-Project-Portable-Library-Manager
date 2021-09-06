@@ -31,7 +31,7 @@ Partial Class Form1
         Me.OpenFileDialogCompZip = New System.Windows.Forms.OpenFileDialog()
         Me.TextBoxLog = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.LabelPrj = New System.Windows.Forms.Label()
         Me.TextBoxPrjFoldPath = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.ButtonAddCompFromSnapEdaZip = New System.Windows.Forms.Button()
@@ -52,16 +52,23 @@ Partial Class Form1
         Me.OpenFileDialogPrjFoldImport = New System.Windows.Forms.OpenFileDialog()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.ButtonAdd3dToComp = New System.Windows.Forms.Button()
+        Me.ListViewCompInPrj = New System.Windows.Forms.ListView()
+        Me.ColumnHeaderCompName = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeaderHas3D = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ButtonAbout = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox5.SuspendLayout()
         Me.SuspendLayout()
         '
         'ButtonChoosePrjFold
         '
-        Me.ButtonChoosePrjFold.Location = New System.Drawing.Point(616, 17)
+        Me.ButtonChoosePrjFold.Location = New System.Drawing.Point(254, 19)
         Me.ButtonChoosePrjFold.Name = "ButtonChoosePrjFold"
         Me.ButtonChoosePrjFold.Size = New System.Drawing.Size(154, 23)
         Me.ButtonChoosePrjFold.TabIndex = 0
@@ -88,7 +95,7 @@ Partial Class Form1
         'ButtonAddCompFromZip
         '
         Me.ButtonAddCompFromZip.Enabled = False
-        Me.ButtonAddCompFromZip.Location = New System.Drawing.Point(6, 152)
+        Me.ButtonAddCompFromZip.Location = New System.Drawing.Point(6, 196)
         Me.ButtonAddCompFromZip.Name = "ButtonAddCompFromZip"
         Me.ButtonAddCompFromZip.Size = New System.Drawing.Size(139, 62)
         Me.ButtonAddCompFromZip.TabIndex = 3
@@ -115,38 +122,45 @@ Partial Class Form1
         '
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.GroupBox1.Controls.Add(Me.LabelPrj)
         Me.GroupBox1.Controls.Add(Me.TextBoxPrjFoldPath)
         Me.GroupBox1.Controls.Add(Me.ButtonChoosePrjFold)
         Me.GroupBox1.Controls.Add(Me.ButtonCreatePrjLib)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 119)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(776, 109)
+        Me.GroupBox1.Size = New System.Drawing.Size(419, 109)
         Me.GroupBox1.TabIndex = 5
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Project Selection and local project library creation"
         '
-        'Label1
+        'LabelPrj
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(177, 50)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(570, 45)
-        Me.Label1.TabIndex = 3
-        Me.Label1.Text = resources.GetString("Label1.Text")
+        Me.LabelPrj.AutoSize = True
+        Me.LabelPrj.BackColor = System.Drawing.Color.Peru
+        Me.LabelPrj.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.LabelPrj.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.LabelPrj.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelPrj.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.LabelPrj.Location = New System.Drawing.Point(195, 58)
+        Me.LabelPrj.Margin = New System.Windows.Forms.Padding(5)
+        Me.LabelPrj.Name = "LabelPrj"
+        Me.LabelPrj.Size = New System.Drawing.Size(147, 22)
+        Me.LabelPrj.TabIndex = 3
+        Me.LabelPrj.Text = "No project selected"
         '
         'TextBoxPrjFoldPath
         '
         Me.TextBoxPrjFoldPath.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.KiCad_Project_Library_Manager.My.MySettings.Default, "TB_prj_saved", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.TextBoxPrjFoldPath.Location = New System.Drawing.Point(6, 19)
         Me.TextBoxPrjFoldPath.Name = "TextBoxPrjFoldPath"
-        Me.TextBoxPrjFoldPath.Size = New System.Drawing.Size(604, 20)
+        Me.TextBoxPrjFoldPath.Size = New System.Drawing.Size(242, 20)
         Me.TextBoxPrjFoldPath.TabIndex = 1
         Me.TextBoxPrjFoldPath.Text = Global.KiCad_Project_Library_Manager.My.MySettings.Default.TB_prj_saved
         '
         'GroupBox2
         '
+        Me.GroupBox2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.GroupBox2.Controls.Add(Me.ButtonAddCompFromSnapEdaZip)
         Me.GroupBox2.Controls.Add(Me.LinkLabel3)
         Me.GroupBox2.Controls.Add(Me.ButtonAddCompFromUltraLibZip)
@@ -155,9 +169,9 @@ Partial Class Form1
         Me.GroupBox2.Controls.Add(Me.LinkLabel1)
         Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Controls.Add(Me.ButtonAddCompFromZip)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 240)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 234)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(377, 220)
+        Me.GroupBox2.Size = New System.Drawing.Size(419, 269)
         Me.GroupBox2.TabIndex = 6
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Component import"
@@ -165,9 +179,9 @@ Partial Class Form1
         'ButtonAddCompFromSnapEdaZip
         '
         Me.ButtonAddCompFromSnapEdaZip.Enabled = False
-        Me.ButtonAddCompFromSnapEdaZip.Location = New System.Drawing.Point(273, 152)
+        Me.ButtonAddCompFromSnapEdaZip.Location = New System.Drawing.Point(273, 196)
         Me.ButtonAddCompFromSnapEdaZip.Name = "ButtonAddCompFromSnapEdaZip"
-        Me.ButtonAddCompFromSnapEdaZip.Size = New System.Drawing.Size(98, 62)
+        Me.ButtonAddCompFromSnapEdaZip.Size = New System.Drawing.Size(135, 62)
         Me.ButtonAddCompFromSnapEdaZip.TabIndex = 10
         Me.ButtonAddCompFromSnapEdaZip.Text = "Import component " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "from SnapEDA" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "archive (.zip)"
         Me.ButtonAddCompFromSnapEdaZip.UseVisualStyleBackColor = True
@@ -175,7 +189,7 @@ Partial Class Form1
         'LinkLabel3
         '
         Me.LinkLabel3.AutoSize = True
-        Me.LinkLabel3.Location = New System.Drawing.Point(6, 92)
+        Me.LinkLabel3.Location = New System.Drawing.Point(6, 115)
         Me.LinkLabel3.Name = "LinkLabel3"
         Me.LinkLabel3.Size = New System.Drawing.Size(139, 13)
         Me.LinkLabel3.TabIndex = 9
@@ -185,7 +199,7 @@ Partial Class Form1
         'ButtonAddCompFromUltraLibZip
         '
         Me.ButtonAddCompFromUltraLibZip.Enabled = False
-        Me.ButtonAddCompFromUltraLibZip.Location = New System.Drawing.Point(151, 152)
+        Me.ButtonAddCompFromUltraLibZip.Location = New System.Drawing.Point(151, 196)
         Me.ButtonAddCompFromUltraLibZip.Name = "ButtonAddCompFromUltraLibZip"
         Me.ButtonAddCompFromUltraLibZip.Size = New System.Drawing.Size(116, 62)
         Me.ButtonAddCompFromUltraLibZip.TabIndex = 8
@@ -195,7 +209,7 @@ Partial Class Form1
         'LinkLabel2
         '
         Me.LinkLabel2.AutoSize = True
-        Me.LinkLabel2.Location = New System.Drawing.Point(6, 79)
+        Me.LinkLabel2.Location = New System.Drawing.Point(6, 96)
         Me.LinkLabel2.Name = "LinkLabel2"
         Me.LinkLabel2.Size = New System.Drawing.Size(154, 13)
         Me.LinkLabel2.TabIndex = 7
@@ -206,7 +220,7 @@ Partial Class Form1
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(6, 104)
+        Me.Label3.Location = New System.Drawing.Point(6, 139)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(286, 45)
         Me.Label3.TabIndex = 6
@@ -216,7 +230,7 @@ Partial Class Form1
         'LinkLabel1
         '
         Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.Location = New System.Drawing.Point(6, 66)
+        Me.LinkLabel1.Location = New System.Drawing.Point(6, 79)
         Me.LinkLabel1.Name = "LinkLabel1"
         Me.LinkLabel1.Size = New System.Drawing.Size(188, 13)
         Me.LinkLabel1.TabIndex = 5
@@ -239,7 +253,7 @@ Partial Class Form1
         Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox3.Controls.Add(Me.TextBoxLog)
-        Me.GroupBox3.Location = New System.Drawing.Point(12, 466)
+        Me.GroupBox3.Location = New System.Drawing.Point(12, 509)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(776, 128)
         Me.GroupBox3.TabIndex = 7
@@ -248,15 +262,16 @@ Partial Class Form1
         '
         'GroupBox4
         '
+        Me.GroupBox4.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.GroupBox4.Controls.Add(Me.ButtonImportAllComponents)
         Me.GroupBox4.Controls.Add(Me.ButtonImportComponents)
         Me.GroupBox4.Controls.Add(Me.Label4)
         Me.GroupBox4.Controls.Add(Me.ListBoxImportComp)
         Me.GroupBox4.Controls.Add(Me.ButtonChoosePrjFoldImport)
         Me.GroupBox4.Controls.Add(Me.TextBoxPrjFoldImportPath)
-        Me.GroupBox4.Location = New System.Drawing.Point(395, 234)
+        Me.GroupBox4.Location = New System.Drawing.Point(437, 317)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(393, 186)
+        Me.GroupBox4.Size = New System.Drawing.Size(345, 186)
         Me.GroupBox4.TabIndex = 8
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Transfert component from existing project"
@@ -301,7 +316,7 @@ Partial Class Form1
         '
         Me.ButtonChoosePrjFoldImport.Location = New System.Drawing.Point(233, 17)
         Me.ButtonChoosePrjFoldImport.Name = "ButtonChoosePrjFoldImport"
-        Me.ButtonChoosePrjFoldImport.Size = New System.Drawing.Size(154, 23)
+        Me.ButtonChoosePrjFoldImport.Size = New System.Drawing.Size(100, 42)
         Me.ButtonChoosePrjFoldImport.TabIndex = 4
         Me.ButtonChoosePrjFoldImport.Text = "Choose projet to import from"
         Me.ButtonChoosePrjFoldImport.UseVisualStyleBackColor = True
@@ -343,11 +358,63 @@ Partial Class Form1
         Me.Label5.TabIndex = 4
         Me.Label5.Text = resources.GetString("Label5.Text")
         '
+        'GroupBox5
+        '
+        Me.GroupBox5.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.GroupBox5.Controls.Add(Me.ButtonAdd3dToComp)
+        Me.GroupBox5.Controls.Add(Me.ListViewCompInPrj)
+        Me.GroupBox5.Location = New System.Drawing.Point(437, 119)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(345, 192)
+        Me.GroupBox5.TabIndex = 10
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "Manage current project components"
+        '
+        'ButtonAdd3dToComp
+        '
+        Me.ButtonAdd3dToComp.Location = New System.Drawing.Point(228, 19)
+        Me.ButtonAdd3dToComp.Name = "ButtonAdd3dToComp"
+        Me.ButtonAdd3dToComp.Size = New System.Drawing.Size(111, 38)
+        Me.ButtonAdd3dToComp.TabIndex = 1
+        Me.ButtonAdd3dToComp.Text = "Add 3D model to selected component"
+        Me.ButtonAdd3dToComp.UseVisualStyleBackColor = True
+        '
+        'ListViewCompInPrj
+        '
+        Me.ListViewCompInPrj.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeaderCompName, Me.ColumnHeaderHas3D})
+        Me.ListViewCompInPrj.HideSelection = False
+        Me.ListViewCompInPrj.Location = New System.Drawing.Point(6, 19)
+        Me.ListViewCompInPrj.Name = "ListViewCompInPrj"
+        Me.ListViewCompInPrj.Size = New System.Drawing.Size(216, 148)
+        Me.ListViewCompInPrj.TabIndex = 0
+        Me.ListViewCompInPrj.UseCompatibleStateImageBehavior = False
+        Me.ListViewCompInPrj.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeaderCompName
+        '
+        Me.ColumnHeaderCompName.Text = "Name"
+        Me.ColumnHeaderCompName.Width = 140
+        '
+        'ColumnHeaderHas3D
+        '
+        Me.ColumnHeaderHas3D.Text = "3D model"
+        '
+        'ButtonAbout
+        '
+        Me.ButtonAbout.Location = New System.Drawing.Point(731, 12)
+        Me.ButtonAbout.Name = "ButtonAbout"
+        Me.ButtonAbout.Size = New System.Drawing.Size(57, 22)
+        Me.ButtonAbout.TabIndex = 11
+        Me.ButtonAbout.Text = "About"
+        Me.ButtonAbout.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 606)
+        Me.ClientSize = New System.Drawing.Size(800, 649)
+        Me.Controls.Add(Me.ButtonAbout)
+        Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.GroupBox4)
@@ -359,7 +426,7 @@ Partial Class Form1
         Me.MaximizeBox = False
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "KiCad Project Local Library Manager v0.1.6"
+        Me.Text = "KiCad Project Local Library Manager v0.1.7"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -369,6 +436,7 @@ Partial Class Form1
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox5.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -383,7 +451,6 @@ Partial Class Form1
     Friend WithEvents OpenFileDialogCompZip As OpenFileDialog
     Friend WithEvents TextBoxLog As TextBox
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents Label1 As Label
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents LinkLabel1 As LinkLabel
     Friend WithEvents Label2 As Label
@@ -403,4 +470,11 @@ Partial Class Form1
     Friend WithEvents LinkLabel2 As LinkLabel
     Friend WithEvents LinkLabel3 As LinkLabel
     Friend WithEvents ButtonAddCompFromSnapEdaZip As Button
+    Friend WithEvents LabelPrj As Label
+    Friend WithEvents GroupBox5 As GroupBox
+    Friend WithEvents ButtonAdd3dToComp As Button
+    Friend WithEvents ListViewCompInPrj As ListView
+    Friend WithEvents ColumnHeaderCompName As ColumnHeader
+    Friend WithEvents ColumnHeaderHas3D As ColumnHeader
+    Friend WithEvents ButtonAbout As Button
 End Class

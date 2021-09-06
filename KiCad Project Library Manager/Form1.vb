@@ -15,6 +15,9 @@ Public Class Form1
             TextBoxPrjFoldPath.Text = OpenFileDialogPrjFold.FileName
             logger.Log("Selected valid project located at " & TextBoxPrjFoldPath.Text)
             kicadPrj = New KiCadProject(TextBoxPrjFoldPath.Text.Remove(TextBoxPrjFoldPath.Text.LastIndexOf("\"), TextBoxPrjFoldPath.Text.Length - TextBoxPrjFoldPath.Text.LastIndexOf("\")), logger)
+            Me.Text = Me.Text & " - " & TextBoxPrjFoldPath.Text.Split("\").Last.Split(".").First
+            LabelPrj.Text = "Current project : " & TextBoxPrjFoldPath.Text.Split("\").Last.Split(".").First
+            LabelPrj.BackColor = Color.Teal
         Else
             logger.Log("Aborted")
         End If
@@ -52,11 +55,19 @@ Public Class Form1
             ButtonAddCompFromZip.Enabled = True
             ButtonAddCompFromUltraLibZip.Enabled = True
             ButtonAddCompFromSnapEdaZip.Enabled = True
+            Me.Text = Me.Text & " - " & TextBoxPrjFoldPath.Text.Split("\").Last.Split(".").First
+            LabelPrj.Text = "Current project : " & TextBoxPrjFoldPath.Text.Split("\").Last.Split(".").First
+            LabelPrj.BackColor = Color.Teal
+
+            GetCurrentPrjComp()
         Else
             ButtonCreatePrjLib.Enabled = False
             ButtonAddCompFromZip.Enabled = False
             ButtonAddCompFromUltraLibZip.Enabled = False
             ButtonAddCompFromSnapEdaZip.Enabled = False
+            Me.Text = Me.Text.Split("-").First
+            LabelPrj.Text = "No project selected"
+            LabelPrj.BackColor = Color.Peru
         End If
 
         If TextBoxPrjFoldImportPath.Text.Contains(".pro") Then
@@ -65,6 +76,28 @@ Public Class Form1
                 ListBoxImportComp.Items.Add(comp)
             Next
         End If
+    End Sub
+
+    Public Sub GetCurrentPrjComp()
+        ListViewCompInPrj.Items.Clear()
+
+        Dim compList As List(Of String) = kicadPrj.GetAllCompInPrj()
+        For Each comp In compList
+            Dim itm As New ListViewItem
+
+            itm.Text = comp
+
+            If kicadPrj.CheckIfCompHas3dModel(comp) Then
+                itm.SubItems.Add("Yes")
+            Else
+                itm.SubItems.Add("No")
+            End If
+
+
+            ListViewCompInPrj.Items.Add(itm)
+        Next
+
+        ListViewCompInPrj.Refresh()
     End Sub
 
     Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
@@ -121,11 +154,19 @@ Public Class Form1
             ButtonAddCompFromUltraLibZip.Enabled = True
             ButtonAddCompFromSnapEdaZip.Enabled = True
             kicadPrj = New KiCadProject(TextBoxPrjFoldPath.Text.Remove(TextBoxPrjFoldPath.Text.LastIndexOf("\"), TextBoxPrjFoldPath.Text.Length - TextBoxPrjFoldPath.Text.LastIndexOf("\")), logger)
+            Me.Text = Me.Text & " - " & TextBoxPrjFoldPath.Text.Split("\").Last.Split(".").First
+            LabelPrj.Text = "Current project : " & TextBoxPrjFoldPath.Text.Split("\").Last.Split(".").First
+            LabelPrj.BackColor = Color.Teal
+
+            GetCurrentPrjComp()
         Else
             ButtonCreatePrjLib.Enabled = False
             ButtonAddCompFromZip.Enabled = False
             ButtonAddCompFromUltraLibZip.Enabled = False
             ButtonAddCompFromSnapEdaZip.Enabled = False
+            Me.Text = Me.Text.Split("-").First
+            LabelPrj.Text = "No project selected"
+            LabelPrj.BackColor = Color.Peru
         End If
     End Sub
 
@@ -195,5 +236,27 @@ Public Class Form1
         Else
             logger.Log("Aborted")
         End If
+    End Sub
+
+    Private Sub ButtonAdd3dToComp_Click(sender As Object, e As EventArgs) Handles ButtonAdd3dToComp.Click
+        If ListViewCompInPrj.SelectedIndices.Count = 1 Then
+            logger.Log("Choosing component 3D model (.stp or .wrl) to add to select component")
+            If OpenFileDialogCompZip.ShowDialog() = DialogResult.OK Then
+                Dim model3dFilePath = OpenFileDialogCompZip.FileName
+                logger.Log("Selected file located at " & model3dFilePath)
+
+                kicadPrj.Add3dModel(ListViewCompInPrj.SelectedItems(0).Text, model3dFilePath)
+
+                logger.Log("done")
+
+                GetCurrentPrjComp()
+            Else
+                logger.Log("Aborted")
+            End If
+        End If
+    End Sub
+
+    Private Sub ButtonAbout_Click(sender As Object, e As EventArgs) Handles ButtonAbout.Click
+        MsgBox("Project link : https://github.com/YannCharbon/KiCad-Project-Portable-Library-Manager", MsgBoxStyle.Information)
     End Sub
 End Class

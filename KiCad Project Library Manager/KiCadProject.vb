@@ -73,10 +73,42 @@ Public Class KiCadProject
             If line.Contains("DEF ") And Not line.Contains("ENDDEF") Then
                 Dim compName As String = Regex.Match(line, "(?<=DEF\s)(.*?)(?=\s)").Value
                 compList.Add(compName)
-                Logger.Log("Detected component '" & compName & "' in import project")
+                'Logger.Log("Detected component '" & compName & "' in import project")
             End If
         Next
 
         Return compList
     End Function
+
+    Public Function CheckIfCompHas3dModel(ByVal compName As String) As Boolean
+        If IO.File.Exists(PrjDir & "\Lib\Package3d\" & compName & ".stp") Then
+            Return True
+        End If
+
+        If IO.File.Exists(PrjDir & "\Lib\Package3d\" & compName & ".wrl") Then
+            Return True
+        End If
+
+        Return False
+    End Function
+
+    Public Sub Add3dModel(ByVal compName As String, ByVal model3dFilePath As String)
+        If model3dFilePath.Split(".").Last = "stp" Or model3dFilePath.Split(".").Last = "step" Then
+            If IO.File.Exists(PrjDir & "\Lib\Package3d\" & compName & ".stp") = False Then
+                IO.File.Copy(model3dFilePath, PrjDir & "\Lib\Package3d\" & compName & ".stp")
+                Logger.Log("Added 3D Model to '" & compName & "'")
+            Else
+                Logger.Log("3D model (.stp) already exists. Skipping.")
+            End If
+        End If
+
+        If model3dFilePath.Split(".").Last = "wrl" Then
+            If IO.File.Exists(PrjDir & "\Lib\Package3d\" & compName & ".wrl") = False Then
+                IO.File.Copy(model3dFilePath, PrjDir & "\Lib\Package3d\" & compName & ".wrl")
+                Logger.Log("Added 3D Model to '" & compName & "'")
+            Else
+                Logger.Log("3D model (.wrl) already exists. Skipping.")
+            End If
+        End If
+    End Sub
 End Class
